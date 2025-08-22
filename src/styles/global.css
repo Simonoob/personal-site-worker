@@ -4,18 +4,133 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 
+
+/* NOTE: COLOR THEME LIGHT */
 :root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
-	--black: 15, 18, 25;
-	--gray: 96, 115, 159;
-	--gray-light: 229, 233, 240;
-	--gray-dark: 34, 41, 57;
-	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
-	--box-shadow:
-		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px
-		rgba(var(--gray), 33%);
+	--bg-dark: oklch(0.92 0.05 100);
+	--bg: oklch(0.96 0.05 100);
+	--bg-light: oklch(1 0.05 100);
+	--text: oklch(0.15 0.1 100);
+	--text-muted: oklch(0.4 0.1 100);
+	--highlight: oklch(1 0.1 100);
+	--border: oklch(0.6 0.1 100);
+	--border-muted: oklch(0.7 0.1 100);
+	--primary: oklch(0.4 0.1 100);
+	--secondary: oklch(0.4 0.1 280);
+	--danger: oklch(0.5 0.1 30);
+	--warning: oklch(0.5 0.1 100);
+	--success: oklch(0.5 0.1 160);
+	--info: oklch(0.5 0.1 260);
 }
+
+/* NOTE: COLOR THEME DARK */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg-dark: oklch(0.1 0.05 75);
+		--bg: oklch(0.15 0.05 75);
+		--bg-light: oklch(0.2 0.05 75);
+		--text: oklch(0.96 0.1 75);
+		--text-muted: oklch(0.76 0.1 75);
+		--highlight: oklch(0.5 0.1 75);
+		--border: oklch(0.4 0.1 75);
+		--border-muted: oklch(0.3 0.1 75);
+		--primary: oklch(0.76 0.1 75);
+		--secondary: oklch(0.76 0.1 255);
+		--danger: oklch(0.7 0.1 30);
+		--warning: oklch(0.7 0.1 100);
+		--success: oklch(0.7 0.1 160);
+		--info: oklch(0.7 0.1 260);
+	}
+}
+}
+
+
+/* @link https://utopia.fyi/type/calculator?c=360,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+/* NOTE: FONT SIZES */
+:root {
+  /* Step -2: 12.5px → 12.8px */
+  --font-step--2: clamp(0.7813rem, 0.7736rem + 0.0341vw, 0.8rem);
+  /* Step -1: 15px → 16px */
+  --font-step--1: clamp(0.9375rem, 0.9119rem + 0.1136vw, 1rem);
+  /* Step 0: 18px → 20px */
+  --font-step-0: clamp(1.125rem, 1.0739rem + 0.2273vw, 1.25rem);
+  /* Step 1: 21.6px → 25px */
+  --font-step-1: clamp(1.35rem, 1.2631rem + 0.3864vw, 1.5625rem);
+  /* Step 2: 25.92px → 31.25px */
+  --font-step-2: clamp(1.62rem, 1.4837rem + 0.6057vw, 1.9531rem);
+  /* Step 3: 31.104px → 39.0625px */
+  --font-step-3: clamp(1.944rem, 1.7405rem + 0.9044vw, 2.4414rem);
+  /* Step 4: 37.3248px → 48.8281px */
+  --font-step-4: clamp(2.3328rem, 2.0387rem + 1.3072vw, 3.0518rem);
+  /* Step 5: 44.7898px → 61.0352px */
+  --font-step-5: clamp(2.7994rem, 2.384rem + 1.8461vw, 3.8147rem);
+}
+
+
+/* @link https://utopia.fyi/space/calculator?c=360,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+/* NOTE: SPACING */
+:root {
+  /* Space 3xs: 5px → 5px */
+  --space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
+  /* Space 2xs: 9px → 10px */
+  --space-2xs: clamp(0.5625rem, 0.5369rem + 0.1136vw, 0.625rem);
+  /* Space xs: 14px → 15px */
+  --space-xs: clamp(0.875rem, 0.8494rem + 0.1136vw, 0.9375rem);
+  /* Space s: 18px → 20px */
+  --space-s: clamp(1.125rem, 1.0739rem + 0.2273vw, 1.25rem);
+  /* Space m: 27px → 30px */
+  --space-m: clamp(1.6875rem, 1.6108rem + 0.3409vw, 1.875rem);
+  /* Space l: 36px → 40px */
+  --space-l: clamp(2.25rem, 2.1477rem + 0.4545vw, 2.5rem);
+  /* Space xl: 54px → 60px */
+  --space-xl: clamp(3.375rem, 3.2216rem + 0.6818vw, 3.75rem);
+  /* Space 2xl: 72px → 80px */
+  --space-2xl: clamp(4.5rem, 4.2955rem + 0.9091vw, 5rem);
+  /* Space 3xl: 108px → 120px */
+  --space-3xl: clamp(6.75rem, 6.4432rem + 1.3636vw, 7.5rem);
+
+  /* One-up pairs */
+  /* Space 3xs-2xs: 5px → 10px */
+  --space-3xs-2xs: clamp(0.3125rem, 0.1847rem + 0.5682vw, 0.625rem);
+  /* Space 2xs-xs: 9px → 15px */
+  --space-2xs-xs: clamp(0.5625rem, 0.4091rem + 0.6818vw, 0.9375rem);
+  /* Space xs-s: 14px → 20px */
+  --space-xs-s: clamp(0.875rem, 0.7216rem + 0.6818vw, 1.25rem);
+  /* Space s-m: 18px → 30px */
+  --space-s-m: clamp(1.125rem, 0.8182rem + 1.3636vw, 1.875rem);
+  /* Space m-l: 27px → 40px */
+  --space-m-l: clamp(1.6875rem, 1.3551rem + 1.4773vw, 2.5rem);
+  /* Space l-xl: 36px → 60px */
+  --space-l-xl: clamp(2.25rem, 1.6364rem + 2.7273vw, 3.75rem);
+  /* Space xl-2xl: 54px → 80px */
+  --space-xl-2xl: clamp(3.375rem, 2.7102rem + 2.9545vw, 5rem);
+  /* Space 2xl-3xl: 72px → 120px */
+  --space-2xl-3xl: clamp(4.5rem, 3.2727rem + 5.4545vw, 7.5rem);
+
+  /* Custom pairs */
+  /* Space s-l: 18px → 40px */
+  --space-s-l: clamp(1.125rem, 0.5625rem + 2.5vw, 2.5rem);
+}
+
+/* @link https://utopia.fyi/grid/calculator?c=360,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+/* NOTE: DESIGN LAYOUT GRID */
+:root {
+  --grid-max-width: 77.50rem;
+  --grid-gutter: var(--space-s-l, clamp(1.125rem, 0.5625rem + 2.5vw, 2.5rem));
+  --grid-columns: 12;
+}
+
+.u-container {
+  max-width: var(--grid-max-width);
+  padding-inline: var(--grid-gutter);
+  margin-inline: auto;
+}
+
+.u-grid {
+  display: grid;
+  gap: var(--grid-gutter);
+}
+
 @font-face {
 	font-family: "Atkinson";
 	src: url("/fonts/atkinson-regular.woff") format("woff");
@@ -35,121 +150,4 @@ body {
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
-	background-size: 100% 600px;
-	word-wrap: break-word;
-	overflow-wrap: break-word;
-	color: rgb(var(--gray-dark));
-	font-size: 20px;
-	line-height: 1.7;
-}
-main {
-	width: 720px;
-	max-width: calc(100% - 2em);
-	margin: auto;
-	padding: 3em 1em;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin: 0 0 0.5rem 0;
-	color: rgb(var(--black));
-	line-height: 1.2;
-}
-h1 {
-	font-size: 3.052em;
-}
-h2 {
-	font-size: 2.441em;
-}
-h3 {
-	font-size: 1.953em;
-}
-h4 {
-	font-size: 1.563em;
-}
-h5 {
-	font-size: 1.25em;
-}
-strong,
-b {
-	font-weight: 700;
-}
-a {
-	color: var(--accent);
-}
-a:hover {
-	color: var(--accent);
-}
-p {
-	margin-bottom: 1em;
-}
-.prose p {
-	margin-bottom: 2em;
-}
-textarea {
-	width: 100%;
-	font-size: 16px;
-}
-input {
-	font-size: 16px;
-}
-table {
-	width: 100%;
-}
-img {
-	max-width: 100%;
-	height: auto;
-	border-radius: 8px;
-}
-code {
-	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
-	border-radius: 2px;
-}
-pre {
-	padding: 1.5em;
-	border-radius: 8px;
-}
-pre > code {
-	all: unset;
-}
-blockquote {
-	border-left: 4px solid var(--accent);
-	padding: 0 0 0 20px;
-	margin: 0px;
-	font-size: 1.333em;
-}
-hr {
-	border: none;
-	border-top: 1px solid rgb(var(--gray-light));
-}
-@media (max-width: 720px) {
-	body {
-		font-size: 18px;
-	}
-	main {
-		padding: 1em;
-	}
-}
-
-.sr-only {
-	border: 0;
-	padding: 0;
-	margin: 0;
-	position: absolute !important;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
-	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-	clip: rect(1px 1px 1px 1px);
-	/* maybe deprecated but we need to support legacy browsers */
-	clip: rect(1px, 1px, 1px, 1px);
-	/* modern browsers, clip-path works inwards from each corner */
-	clip-path: inset(50%);
-	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
-	white-space: nowrap;
 }
