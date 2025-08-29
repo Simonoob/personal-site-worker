@@ -8,7 +8,6 @@ import SwappieLogo from '../assets/workplaces/swappie.jpg'
 import { getCollection } from 'astro:content'
 import { Image } from 'astro:assets'
 import FormattedDate from '../components/FormattedDate.astro'
-import xkcdComics from '../assets/xkcd_comics.json'
 
 const featuredPosts = (await getCollection('blog'))
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
@@ -65,11 +64,8 @@ const featuredPosts = (await getCollection('blog'))
 						alt="comic image placeholder"
 						src="/src/assets/old_man_yells_at_cloudflare.png"
 					/>
-					<img
-						id="xkcd-comic-img"
-						alt="comic image"
-					/>
-				</div>	
+					<img id="xkcd-comic-img" alt="comic image" />
+				</div>
 			</div>
 		</section>
 	</main>
@@ -133,9 +129,8 @@ const featuredPosts = (await getCollection('blog'))
 	const img = document.getElementById('xkcd-comic-img')
 	const imgPlaceholder = document.getElementById('xkcd-comic-img-placeholder')
 
-
-	if(img && imgPlaceholder) {
-		img.src  = imgLink
+	if (img && imgPlaceholder) {
+		img.src = imgLink
 		img.style.visibility = 'visible'
 	}
 </script>
@@ -236,7 +231,6 @@ const featuredPosts = (await getCollection('blog'))
 		font-weight: normal;
 		color: var(--text);
 	}
-	 
 
 	.comic p {
 		margin-bottom: var(--space-3xs);

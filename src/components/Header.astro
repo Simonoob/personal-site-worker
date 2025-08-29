@@ -5,14 +5,37 @@ import OldManCloudflare from '../assets/old_man_yells_at_cloudflare.png'
 import OldManK8s from '../assets/old_man_yells_at_k8s.png'
 import OldManPython from '../assets/old_man_yells_at_python.png'
 
-
-const headerImgs = [OldManNpm,  OldManCloudflare, OldManK8s, OldManPython]
+export const headerImgs = [OldManNpm, OldManCloudflare, OldManK8s, OldManPython]
 const headerImg = headerImgs[Math.floor(Math.random() * headerImgs.length)]
 ---
 
 <header class="box">
-	<a href="/"><img class="header-img" src={headerImg.src} /></a>
+	<button id="header-img-btn">
+		<img
+			class="header-img"
+			id="header-img"
+			src={headerImg.src}
+			alt="header image"
+		/>
+	</button>
 </header>
+
+<script>
+	import { headerImgs } from './Header.astro'
+	const btn = document.getElementById('header-img-btn')
+	const img = document.getElementById('header-img')
+	if (btn && img) {
+		btn.addEventListener('click', () => {
+			let newSrc
+			do {
+				newSrc =
+					headerImgs[Math.floor(Math.random() * headerImgs.length)]
+						.src
+			} while (newSrc === img.src)
+			img.src = newSrc
+		})
+	}
+</script>
 <nav class="internal-links box">
 	<HeaderLink href="/" class="link">Home</HeaderLink>
 	<HeaderLink href="/blog" class="link">Blog</HeaderLink>
@@ -47,6 +70,18 @@ const headerImg = headerImgs[Math.floor(Math.random() * headerImgs.length)]
 	}
 	header img {
 		height: var(--space-xl);
+	}
+	#header-img-btn {
+		background: none;
+		border: none;
+		padding: 0;
+		cursor: pointer;
+		width: 100%;
+		height: 100%;
+		padding: var(--grid-gutter);
+	}
+	#header-img-btn:hover {
+		background: var(--bg-dark);
 	}
 
 	@media (max-width: 600px) {
