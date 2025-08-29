@@ -66,6 +66,10 @@
 /* @link https://utopia.fyi/space/calculator?c=360,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 /* NOTE: SPACING */
 :root {
+	/* Space 5xs: 3px → 3px */
+	--space-5xs: clamp(0.1875rem, 0.1875rem + 0vw, 0.1875rem);
+	/* Space 4xs: 4px → 4px */
+	--space-4xs: clamp(0.25rem, 0.25rem + 0vw, 0.25rem);
 	/* Space 3xs: 5px → 5px */
 	--space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
 	/* Space 2xs: 9px → 10px */
@@ -118,32 +122,79 @@
 
 .u-container {
 	max-width: var(--grid-max-width);
-	padding-inline: var(--grid-gutter);
+	padding: var(--grid-gutter);
 	margin-inline: auto;
 }
 
 .u-grid {
 	display: grid;
 	gap: var(--grid-gutter);
+	grid-template-columns: repeat(var(--grid-columns), 1fr);
 }
 
-@font-face {
-	font-family: 'Atkinson';
-	src: url('/fonts/atkinson-regular.woff') format('woff');
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: 'Atkinson';
-	src: url('/fonts/atkinson-bold.woff') format('woff');
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
-}
 body {
-	font-family: 'Atkinson', sans-serif;
+	font-family: 'Darker Grotesque', sans-serif;
+	font-optical-sizing: auto;
+	font-style: normal;
+	font-size: var(--font-step--0);
 	margin: 0;
 	padding: 0;
 	text-align: left;
+	color: var(--text);
+	background: var(--bg);
+}
+
+h1 {
+	font-size: var(--font-step-5);
+}
+
+h2 {
+	font-size: var(--font-step-4);
+}
+
+h3 {
+	font-size: var(--font-step-3);
+}
+
+h4 {
+	font-size: var(--font-step-2);
+}
+
+h5 {
+	font-size: var(--font-step-1);
+}
+
+h6 {
+	font-size: var(--font-step-1);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	/* font-family: "Honk", system-ui; */
+	font-optical-sizing: auto;
+	text-transform: uppercase;
+}
+
+a {
+	font-size: var(--font-step-1);
+	font-weight: 700;
+	color: var(--accent);
+	display: block;
+}
+a:hover,
+a:focus-visible {
+	background: var(--bg-dark);
+	outline: none;
+}
+a:visited {
+	color: inherit;
+}
+
+.box {
+	background: var(--bg-light);
+	border: var(--space-5xs) solid var(--text-muted);
+	box-shadow: var(--space-3xs) var(--space-3xs) var(--bg-dark);
 }
