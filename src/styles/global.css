@@ -184,11 +184,20 @@ a {
 	color: var(--accent);
 	display: block;
 }
-a:hover,
-a:focus-visible {
-	background: var(--bg-dark);
-	outline: none;
+
+p a {
+	font-size: inherit;
+	display: inline;
 }
+
+@media (pointer: fine) {
+	a:hover,
+	a:focus-visible {
+		background: var(--bg-dark);
+		outline: none;
+	}
+}
+
 a:visited {
 	color: inherit;
 }

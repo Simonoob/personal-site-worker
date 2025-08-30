@@ -44,7 +44,7 @@ const headerImg = headerImgs[Math.floor(Math.random() * headerImgs.length)]
 
 <style>
 	header {
-		grid-column: span 5;
+		grid-column: span 1;
 		display: flex;
 		justify-content: center;
 	}
@@ -60,7 +60,7 @@ const headerImg = headerImgs[Math.floor(Math.random() * headerImgs.length)]
 		display: grid;
 		align-items: stretch;
 		grid-template-columns: repeat(3, 1fr);
-		grid-column: span 7;
+		grid-column: span 11;
 	}
 	.link {
 		display: grid;
@@ -80,24 +80,21 @@ const headerImg = headerImgs[Math.floor(Math.random() * headerImgs.length)]
 		height: 100%;
 		padding: var(--grid-gutter);
 	}
-	#header-img-btn:hover {
-		background: var(--bg-dark);
+	@media (pointer: fine) {
+		#header-img-btn:hover {
+			background: var(--bg-dark);
+		}
 	}
 
 	@media (max-width: 600px) {
 		header {
-			grid-column: 1 / span 7;
 			justify-content: start;
 		}
 		.internal-links {
-			grid-column: span 5;
 			padding: var(--grid-gutter);
 			display: flex;
 			flex-direction: column;
 			align-items: stretch;
-		}
-		.link {
-			justify-items: baseline;
 		}
 	}
 </style>

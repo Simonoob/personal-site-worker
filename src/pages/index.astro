@@ -19,6 +19,9 @@ const featuredPosts = (await getCollection('blog'))
 	<main class="main box">
 		<section>
 			<h2>Welcome</h2>
+			<p>
+				This is the Simone Fiorentini's personal website, have a look around or check the <a href="/about/">about page</a>
+			</p>
 		</section>
 
 		<section>
@@ -133,6 +136,8 @@ const featuredPosts = (await getCollection('blog'))
 	if (img && imgPlaceholder) {
 		img.src = imgLink
 		img.style.visibility = 'visible'
+		imgPlaceholder.style.transition = 'scale 0.5s ease-in'
+		imgPlaceholder.style.scale = '0.25'
 	}
 </script>
 
