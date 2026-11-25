@@ -6,14 +6,14 @@
 
 /* NOTE: COLOR THEME LIGHT */
 :root {
-	--bg-dark: oklch(0.92 0.05 100);
-	--bg: oklch(0.96 0.05 100);
-	--bg-light: oklch(1 0.05 100);
-	--text: oklch(0.15 0.1 100);
-	--text-muted: oklch(0.4 0.1 100);
+	--bg-dark: oklch(0.9 0.06 100);
+	--bg: oklch(0.95 0.05 100);
+	--bg-light: oklch(0.985 0.035 100);
+	--text: oklch(0.22 0.05 100);
+	--text-muted: oklch(0.42 0.08 100);
 	--highlight: oklch(1 0.1 100);
-	--border: oklch(0.6 0.1 100);
-	--border-muted: oklch(0.7 0.1 100);
+	--border: oklch(0.42 0.09 100);
+	--border-muted: oklch(0.8 0.08 100);
 	--primary: oklch(0.4 0.1 100);
 	--secondary: oklch(0.4 0.1 280);
 	--danger: oklch(0.5 0.1 30);
@@ -25,14 +25,14 @@
 /* NOTE: COLOR THEME DARK */
 @media (prefers-color-scheme: dark) {
 	:root {
-		--bg-dark: oklch(0.1 0.05 75);
-		--bg: oklch(0.15 0.05 75);
-		--bg-light: oklch(0.2 0.05 75);
-		--text: oklch(0.96 0.1 75);
-		--text-muted: oklch(0.76 0.1 75);
+		--bg-dark: oklch(0.14 0.03 75);
+		--bg: oklch(0.18 0.035 75);
+		--bg-light: oklch(0.23 0.04 75);
+		--text: oklch(0.93 0.06 80);
+		--text-muted: oklch(0.76 0.08 78);
 		--highlight: oklch(0.5 0.1 75);
-		--border: oklch(0.4 0.1 75);
-		--border-muted: oklch(0.3 0.1 75);
+		--border: oklch(0.72 0.1 75);
+		--border-muted: oklch(0.4 0.07 75);
 		--primary: oklch(0.76 0.1 75);
 		--secondary: oklch(0.76 0.1 255);
 		--danger: oklch(0.7 0.1 30);
@@ -116,8 +116,9 @@
 /* NOTE: DESIGN LAYOUT GRID */
 :root {
 	--grid-max-width: 77.5rem;
-	--grid-gutter: var(--space-s-l, clamp(1.125rem, 0.5625rem + 2.5vw, 2.5rem));
+	--grid-gutter: var(--space-xs-s);
 	--grid-columns: 12;
+	--border-width: var(--space-5xs);
 }
 
 .u-container {
@@ -136,7 +137,9 @@ body {
 	font-family: 'Darker Grotesque', sans-serif;
 	font-optical-sizing: auto;
 	font-style: normal;
-	font-size: var(--font-step--0);
+	font-size: var(--font-step-0);
+	font-weight: 500;
+	line-height: 1.4;
 	margin: 0;
 	padding: 0;
 	text-align: left;
@@ -145,27 +148,24 @@ body {
 }
 
 h1 {
-	font-size: var(--font-step-5);
-}
-
-h2 {
 	font-size: var(--font-step-4);
 }
 
-h3 {
+h2 {
 	font-size: var(--font-step-3);
 }
 
-h4 {
+h3 {
 	font-size: var(--font-step-2);
 }
 
-h5 {
+h4 {
 	font-size: var(--font-step-1);
 }
 
+h5,
 h6 {
-	font-size: var(--font-step-1);
+	font-size: var(--font-step-0);
 }
 h1,
 h2,
@@ -176,12 +176,50 @@ h6 {
 	/* font-family: "Honk", system-ui; */
 	font-optical-sizing: auto;
 	text-transform: uppercase;
+	line-height: 1.1;
+	margin: 0 0 var(--space-xs);
+}
+
+p,
+ul,
+ol {
+	margin-block: 0 var(--space-xs);
+}
+
+.prose {
+	max-width: 70ch;
+	margin-inline: auto;
+}
+
+.prose :is(img, iframe, video) {
+	max-width: 100%;
+}
+
+.prose pre {
+	padding: var(--space-xs);
+	overflow-x: auto;
+	font-size: var(--font-step--1);
+}
+
+hr {
+	border: 0;
+	border-top: var(--border-width) solid var(--border);
+	margin-block: var(--space-xs);
+}
+
+.prose :is(h2, h3, h4, h5, h6) {
+	margin-top: var(--space-m);
+}
+
+.prose img {
+	max-width: 100%;
+	height: auto;
 }
 
 a {
-	font-size: var(--font-step-1);
+	font-size: inherit;
 	font-weight: 700;
-	color: var(--accent);
+	color: inherit;
 	display: block;
 }
 
@@ -204,6 +242,6 @@ a:visited {
 
 .box {
 	background: var(--bg-light);
-	border: var(--space-5xs) solid var(--text-muted);
-	box-shadow: var(--space-3xs) var(--space-3xs) var(--bg-dark);
+	border: var(--border-width) solid var(--border);
+	box-shadow: var(--space-3xs) var(--space-3xs) var(--border-muted);
 }

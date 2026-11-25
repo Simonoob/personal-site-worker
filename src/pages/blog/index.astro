@@ -58,12 +58,13 @@ const posts = (await getCollection('blog')).sort(
 	}
 
 	.title {
-		font-size: var(--font-step-2);
+		font-size: var(--font-step-1);
 		text-decoration: underline;
 	}
 	.date {
 		margin-top: 0;
-		font-size: var(--font-step-0);
+		font-size: var(--font-step--1);
+		color: var(--text-muted);
 	}
 	.date,
 	.description {

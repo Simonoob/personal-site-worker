@@ -151,10 +151,7 @@ const featuredPosts = (await getCollection('blog'))
 		padding: var(--grid-gutter);
 		display: flex;
 		flex-direction: column;
-		justify-content: space-between;
-	}
-	.main p {
-		margin-bottom: var(--space-m);
+		gap: var(--space-m);
 	}
 	.main section ul {
 		list-style: none;
@@ -188,7 +185,7 @@ const featuredPosts = (await getCollection('blog'))
 	}
 
 	.aside ul li {
-		padding: var(--grid-gutter) 0;
+		padding: var(--space-s) 0;
 	}
 
 	.aside ul li:first-child {
@@ -196,11 +193,11 @@ const featuredPosts = (await getCollection('blog'))
 	}
 
 	.aside ul li:not(:last-child) {
-		border-bottom: var(--space-3xs) solid var(--text-muted);
+		border-bottom: var(--border-width) solid var(--border);
 	}
 	.cv-button {
 		padding: var(--space-2xs);
-		border: var(--space-5xs) solid var(--text-muted);
+		border: var(--border-width) solid var(--border);
 		text-align: center;
 	}
 	#featured-post-link {
@@ -209,7 +206,7 @@ const featuredPosts = (await getCollection('blog'))
 		gap: var(--space-xs);
 		text-decoration: none;
 		color: inherit;
-		border: var(--space-5xs) solid var(--text-muted);
+		border: var(--border-width) solid var(--border);
 		padding: var(--grid-gutter);
 	}
 	#featured-post-img {

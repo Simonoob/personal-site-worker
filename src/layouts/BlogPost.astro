@@ -10,7 +10,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
 <BaseLayout>
-	<article>
+	<article class="box">
 		<div class="hero-image">
 			{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
 		</div>
@@ -37,5 +37,11 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 <style>
 article {
 	grid-column: span 12;
+	padding: var(--grid-gutter);
+}
+.date {
+	font-size: var(--font-step--1);
+	color: var(--text-muted);
+	margin-bottom: var(--space-2xs);
 }
 </style>
